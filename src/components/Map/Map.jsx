@@ -39,6 +39,7 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherDat
                 <Paper elevation={3} className={classes.paper}>
                   <Typography className={classes.typography} variant="subtitle2" gutterBottom> {place.name}</Typography>
                   <img
+                  alt="place"
                     className={classes.pointer}
                     src={place.photo ? place.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}
                   />
@@ -49,7 +50,7 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherDat
         ))}
         {weatherData?.list?.length && weatherData.list.map((data, i) => (
           <div key={i} lat={data.coord.lat} lng={data.coord.lon}>
-            <img src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`} height="70px" />
+            <img src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`} height="70px" alt="weather"/>
           </div>
         ))}
       </GoogleMapReact>

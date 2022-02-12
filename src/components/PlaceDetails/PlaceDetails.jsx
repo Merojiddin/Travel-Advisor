@@ -7,7 +7,9 @@ import Rating from '@material-ui/lab/Rating';
 import useStyles from './styles.js';
 
 const PlaceDetails = ({ place, selected, refProp }) => {
-  // if (selected) refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (selected) refProp.current.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
+
+  console.log(place)
   const classes = useStyles();
 
   return (
@@ -16,6 +18,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
         style={{ height: 350 }}
         image={place.photo ? place.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}
         title={place.name}
+        alt="place"
       />
       <CardContent>
         <Typography gutterBottom variant="h5">{place.name}</Typography>
@@ -37,7 +40,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
         </Box>
         {place?.awards?.map((award) => (
           <Box display="flex" justifyContent="space-between" my={1} alignItems="center">
-            <img src={award.images.small} />
+            <img src={award.images.small} alt="awards"/>
             <Typography variant="subtitle2" color="textSecondary">{award.display_name}</Typography>
           </Box>
         ))}
